@@ -1,3 +1,11 @@
+/*
+ * text coding: IBM866 / CP866 / csIBM866 / OEM866
+ * Информатика и программирование ч.2, Лабораторная №4, вариант 8
+ *
+ * Задание:
+ *
+ */
+
 #include <stdio.h>
 #include <locale.h>
 #include "_malloc.h"
