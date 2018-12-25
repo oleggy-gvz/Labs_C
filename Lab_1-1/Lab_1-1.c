@@ -105,10 +105,10 @@ int main(void)
 	int A, K[20], num_K;
 	int res;
 
-    imput(&A); // ввод данных
-    res = getPrimeDivisors(A, K, &num_K);  // получаем массив простых делителей K с размерностью num_K
+	imput(&A); // ввод данных
+	res = getPrimeDivisors(A, K, &num_K);  // получаем массив простых делителей K с размерностью num_K
 	output(A, K, num_K, res); // вывод данных с обработкой ошибок из res
 	if(res == 0) test(A, K, num_K); // если число было найдено, проводим тест
 
-    return 0;
+	return 0;
 }
