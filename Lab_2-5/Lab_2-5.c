@@ -1,9 +1,5 @@
 /*
  * text coding: IBM866 / CP866 / csIBM866 / OEM866
- * à≠‰Æ‡¨†‚®™† ® Ø‡Æ£‡†¨¨®‡Æ¢†≠®• Á.2, ã†°Æ‡†‚Æ‡≠†Ô ¸4, ¢†‡®†≠‚ 8
- *
- * á†§†≠®•:
- *
  */
 
 #include <stdio.h>
@@ -38,67 +34,67 @@ int main(void)
 
 	int *a = (int *)_malloc(sizeof(int));
 	*a = 0xAA0102AA;
-	printf("¢Î§•´®´®: int a = %ld (%x),\t†§‡•··: %p\n", *a, *a, a);
+	printf("–≤—ã–¥–µ–ª–∏–ª–∏: int a = %ld (%x),\t–∞–¥—Ä–µ—Å—Å: %p\n", *a, *a, a);
 	show_memory();
 	
 	int *b = (int *)_malloc(2 * sizeof(int));
 	b[0] = 0xBB0102BB; b[1] = 0xCC0102CC;
 	for (int i = 0; i < 2; i++)
-		printf("¢Î§•´®´®: int b[%d] = %d (%x),\t†§‡•··: %p\n", i, b[i], b[i], &b[i]);
+		printf("–≤—ã–¥–µ–ª–∏–ª–∏: int b[%d] = %d (%x),\t–∞–¥—Ä–µ—Å—Å: %p\n", i, b[i], b[i], &b[i]);
 	show_memory();
 
 	long long *c = (long long *)_malloc(sizeof(long long));
 	*c = 0xDD010203040506DD;
-	printf("¢Î§•´®´®: long long c = %I64d (%I64x),\n\t\t\t\t\t\t†§‡•·: %p\n", *c, *c, c);
+	printf("–≤—ã–¥–µ–ª–∏–ª–∏: long long c = %I64d (%I64x),\n\t\t\t\t\t\t–∞–¥—Ä–µ—Å: %p\n", *c, *c, c);
 	show_memory();
 
 	float *d = (float *)_malloc(sizeof(float));
 	*d = 123.123f;
-	//printf("¢Î§•´®´®: float d = %f (%x),\t†§‡•··: %p\n", *d, *d, d);
-	printf("¢Î§•´®´®: float d = %f\n", *d);
+	//printf("–≤—ã–¥–µ–ª–∏–ª–∏: float d = %f (%x),\t–∞–¥—Ä–µ—Å—Å: %p\n", *d, *d, d);
+	printf("–≤—ã–¥–µ–ª–∏–ª–∏: float d = %f\n", *d);
 	show_memory();
 
 	*a = 0;
 	_free((byte *)a);
-	puts("Æ·¢Æ°Æ§®´®: int a");
+	puts("–æ—Å–≤–æ–±–æ–¥–∏–ª–∏: int a");
 	show_memory();
 
 	*c = 0;
 	_free((byte *)c);
-	puts("Æ·¢Æ°Æ§®´®: long long c");
+	puts("–æ—Å–≤–æ–±–æ–¥–∏–ª–∏: long long c");
 	show_memory();
 
 	int *e = (int *)_malloc(sizeof(int));
 	*e = 0xEE0102EE;
-	printf("¢Î§•´®´®: int e = %d (%x),\t†§‡•··: %p\n", *e, *e, e);
+	printf("–≤—ã–¥–µ–ª–∏–ª–∏: int e = %d (%x),\t–∞–¥—Ä–µ—Å—Å: %p\n", *e, *e, e);
 	show_memory();
 
 	short *f = (short *)_malloc(4*sizeof(short));
 	for (int i = 0; i < 4; i++)
 	{
 		f[i] = 0xFF01 + i;
-		printf("¢Î§•´®´®: short f[%d] = %d (%x),\t\t†§‡•·: %p\n", i, f[i], f[i], &f[i]);
+		printf("–≤—ã–¥–µ–ª–∏–ª–∏: short f[%d] = %d (%x),\t\t–∞–¥—Ä–µ—Å: %p\n", i, f[i], f[i], &f[i]);
 	}
 	show_memory();
 
 	*e = 0;
 	_free((byte *)e);
-	puts("Æ·¢Æ°Æ§®´®: int e");
+	puts("–æ—Å–≤–æ–±–æ–¥–∏–ª–∏: int e");
 	show_memory();
 
 	for (int i = 0; i < 4; i++) f[i] = 0;
 	_free((byte *)f);
-	puts("Æ·¢Æ°Æ§®´®: short f[4]");
+	puts("–æ—Å–≤–æ–±–æ–¥–∏–ª–∏: short f[4]");
 	show_memory();
 
 	for (int i = 0; i < 2; i++) b[i] = 0;
 	_free((byte *)b);
-	puts("Æ·¢Æ°Æ§®´®: b[2]");
+	puts("–æ—Å–≤–æ–±–æ–¥–∏–ª–∏: b[2]");
 	show_memory();
 
 	*d = 0;
 	_free((byte *)d);
-	puts("Æ·¢Æ°Æ§®´®: float d");
+	puts("–æ—Å–≤–æ–±–æ–¥–∏–ª–∏: float d");
 	show_memory();
 
     return 0;

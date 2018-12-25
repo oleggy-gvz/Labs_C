@@ -1,48 +1,48 @@
 #pragma once
 
-#define MEMORY_SIZE 25 // размер в байтах ВСЕЙ памяти
-#define TABLE_SIZE 10  // макс. кол-во записей в таблице памяти
+#define MEMORY_SIZE 25 // ╤А╨░╨╖╨╝╨╡╤А ╨▓ ╨▒╨░╨╣╤В╨░╤Е ╨Т╨б╨Х╨Щ ╨┐╨░╨╝╤П╤В╨╕
+#define TABLE_SIZE 10  // ╨╝╨░╨║╤Б. ╨║╨╛╨╗-╨▓╨╛ ╨╖╨░╨┐╨╕╤Б╨╡╨╣ ╨▓ ╤В╨░╨▒╨╗╨╕╤Ж╨╡ ╨┐╨░╨╝╤П╤В╨╕
 
 typedef char byte;
 
-// один блок памяти
+// ╨╛╨┤╨╕╨╜ ╨▒╨╗╨╛╨║ ╨┐╨░╨╝╤П╤В╨╕
 struct Block
 {
-    byte* adress;	// адрес начала записи памяти
-	unsigned long size;	// размер записи в байтах
+    byte* adress;	// ╨░╨┤╤А╨╡╤Б ╨╜╨░╤З╨░╨╗╨░ ╨╖╨░╨┐╨╕╤Б╨╕ ╨┐╨░╨╝╤П╤В╨╕
+	unsigned long size;	// ╤А╨░╨╖╨╝╨╡╤А ╨╖╨░╨┐╨╕╤Б╨╕ ╨▓ ╨▒╨░╨╣╤В╨░╤Е
 };
 
-// таблица блоков памяти
+// ╤В╨░╨▒╨╗╨╕╤Ж╨░ ╨▒╨╗╨╛╨║╨╛╨▓ ╨┐╨░╨╝╤П╤В╨╕
 struct TableBlocks
 {
-    struct Block blocks[TABLE_SIZE]; // массив блоков памяти
-    int count; // кол-во блоков памяти
+    struct Block blocks[TABLE_SIZE]; // ╨╝╨░╤Б╤Б╨╕╨▓ ╨▒╨╗╨╛╨║╨╛╨▓ ╨┐╨░╨╝╤П╤В╨╕
+    int count; // ╨║╨╛╨╗-╨▓╨╛ ╨▒╨╗╨╛╨║╨╛╨▓ ╨┐╨░╨╝╤П╤В╨╕
 };
 
-// память
+// ╨┐╨░╨╝╤П╤В╤М
 struct Memory
 {
-    byte buffer[MEMORY_SIZE]; // место хранения памяти
-    unsigned long size_free; // размер всей памяти
+    byte buffer[MEMORY_SIZE]; // ╨╝╨╡╤Б╤В╨╛ ╤Е╤А╨░╨╜╨╡╨╜╨╕╤П ╨┐╨░╨╝╤П╤В╨╕
+    unsigned long size_free; // ╤А╨░╨╖╨╝╨╡╤А ╨▓╤Б╨╡╨╣ ╨┐╨░╨╝╤П╤В╨╕
 
-    struct TableBlocks blocks_free; // свободные блоки памяти
-    struct TableBlocks blocks_used; // используемые блоки памяти
+    struct TableBlocks blocks_free; // ╤Б╨▓╨╛╨▒╨╛╨┤╨╜╤Л╨╡ ╨▒╨╗╨╛╨║╨╕ ╨┐╨░╨╝╤П╤В╨╕
+    struct TableBlocks blocks_used; // ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝╤Л╨╡ ╨▒╨╗╨╛╨║╨╕ ╨┐╨░╨╝╤П╤В╨╕
 };
 
-// вспомогательные
+// ╨▓╤Б╨┐╨╛╨╝╨╛╨│╨░╤В╨╡╨╗╤М╨╜╤Л╨╡
 int find_block_size(struct TableBlocks *, unsigned long);
 int bin_search(struct TableBlocks *, byte *);
 int find_block_adr(struct TableBlocks *, byte *);
 int add_block_sort_bin(struct TableBlocks *, struct Block);
-int add_block_sort(struct TableBlocks *, struct Block); // не использую
-int add_block(struct TableBlocks *, struct Block); // не использую
+int add_block_sort(struct TableBlocks *, struct Block); // ╨╜╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╤О
+int add_block(struct TableBlocks *, struct Block); // ╨╜╨╡ ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╤О
 int delete_block(struct TableBlocks *, int);
 int inc_adress_block(struct TableBlocks *, int, byte);
 int resize_block(struct TableBlocks *, int n, unsigned long , int);
 void merge_blocks(struct TableBlocks *);
 void initialize_memory(void);
-// основные
+// ╨╛╤Б╨╜╨╛╨▓╨╜╤Л╨╡
 void* _malloc(unsigned long);
 int _free(byte* );
-// вывод
+// ╨▓╤Л╨▓╨╛╨┤
 void show_memory(void);
